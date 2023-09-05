@@ -124,7 +124,7 @@ export type Article = {
   title: Scalars['String'];
   unsubHttpUrl?: Maybe<Scalars['String']>;
   unsubMailTo?: Maybe<Scalars['String']>;
-  updatedAt: Scalars['Date'];
+  updatedAt?: Maybe<Scalars['Date']>;
   uploadFileId?: Maybe<Scalars['ID']>;
   url: Scalars['String'];
   wordsCount?: Maybe<Scalars['Int']>;
@@ -167,7 +167,7 @@ export type ArticleSavingRequest = {
   id: Scalars['ID'];
   slug: Scalars['String'];
   status: ArticleSavingRequestStatus;
-  updatedAt: Scalars['Date'];
+  updatedAt?: Maybe<Scalars['Date']>;
   url: Scalars['String'];
   user: User;
   /** @deprecated userId has been replaced with user */
@@ -721,7 +721,7 @@ export type Feature = {
   id: Scalars['ID'];
   name: Scalars['String'];
   token: Scalars['String'];
-  updatedAt: Scalars['Date'];
+  updatedAt?: Maybe<Scalars['Date']>;
 };
 
 export type FeedArticle = {
@@ -771,7 +771,7 @@ export type Filter = {
   id: Scalars['ID'];
   name: Scalars['String'];
   position: Scalars['Int'];
-  updatedAt: Scalars['Date'];
+  updatedAt?: Maybe<Scalars['Date']>;
   visible?: Maybe<Scalars['Boolean']>;
 };
 
@@ -928,7 +928,7 @@ export type Highlight = {
   shortId: Scalars['String'];
   suffix?: Maybe<Scalars['String']>;
   type: HighlightType;
-  updatedAt: Scalars['Date'];
+  updatedAt?: Maybe<Scalars['Date']>;
   user: User;
 };
 
@@ -938,7 +938,7 @@ export type HighlightReply = {
   highlight: Highlight;
   id: Scalars['ID'];
   text: Scalars['String'];
-  updatedAt: Scalars['Date'];
+  updatedAt?: Maybe<Scalars['Date']>;
   user: User;
 };
 
@@ -979,7 +979,7 @@ export type Integration = {
   taskName?: Maybe<Scalars['String']>;
   token: Scalars['String'];
   type: IntegrationType;
-  updatedAt: Scalars['Date'];
+  updatedAt?: Maybe<Scalars['Date']>;
 };
 
 export enum IntegrationType {
@@ -1082,7 +1082,7 @@ export type Link = {
   shareInfo: LinkShareInfo;
   shareStats: ShareStats;
   slug: Scalars['String'];
-  updatedAt: Scalars['Date'];
+  updatedAt?: Maybe<Scalars['Date']>;
   url: Scalars['String'];
 };
 
@@ -1640,7 +1640,7 @@ export type Page = {
   readableHtml: Scalars['String'];
   title: Scalars['String'];
   type: PageType;
-  updatedAt: Scalars['Date'];
+  updatedAt?: Maybe<Scalars['Date']>;
   url: Scalars['String'];
 };
 
@@ -1947,7 +1947,7 @@ export type RecommendationGroup = {
   members: Array<User>;
   name: Scalars['String'];
   topics?: Maybe<Array<Scalars['String']>>;
-  updatedAt: Scalars['Date'];
+  updatedAt?: Maybe<Scalars['Date']>;
 };
 
 export type RecommendingUser = {
@@ -2031,7 +2031,7 @@ export type Rule = {
   filter: Scalars['String'];
   id: Scalars['ID'];
   name: Scalars['String'];
-  updatedAt: Scalars['Date'];
+  updatedAt?: Maybe<Scalars['Date']>;
 };
 
 export type RuleAction = {
@@ -2636,7 +2636,7 @@ export type Subscription = {
   type: SubscriptionType;
   unsubscribeHttpUrl?: Maybe<Scalars['String']>;
   unsubscribeMailTo?: Maybe<Scalars['String']>;
-  updatedAt: Scalars['Date'];
+  updatedAt?: Maybe<Scalars['Date']>;
   url?: Maybe<Scalars['String']>;
 };
 
@@ -3160,7 +3160,7 @@ export type Webhook = {
   eventTypes: Array<WebhookEvent>;
   id: Scalars['ID'];
   method: Scalars['String'];
-  updatedAt: Scalars['Date'];
+  updatedAt?: Maybe<Scalars['Date']>;
   url: Scalars['String'];
 };
 
@@ -4274,7 +4274,7 @@ export type ArticleResolvers<ContextType = ResolverContext, ParentType extends R
   title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   unsubHttpUrl?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   unsubMailTo?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  updatedAt?: Resolver<ResolversTypes['Date'], ParentType, ContextType>;
+  updatedAt?: Resolver<Maybe<ResolversTypes['Date']>, ParentType, ContextType>;
   uploadFileId?: Resolver<Maybe<ResolversTypes['ID']>, ParentType, ContextType>;
   url?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   wordsCount?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
@@ -4303,7 +4303,7 @@ export type ArticleSavingRequestResolvers<ContextType = ResolverContext, ParentT
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   slug?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   status?: Resolver<ResolversTypes['ArticleSavingRequestStatus'], ParentType, ContextType>;
-  updatedAt?: Resolver<ResolversTypes['Date'], ParentType, ContextType>;
+  updatedAt?: Resolver<Maybe<ResolversTypes['Date']>, ParentType, ContextType>;
   url?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   user?: Resolver<ResolversTypes['User'], ParentType, ContextType>;
   userId?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
@@ -4672,7 +4672,7 @@ export type FeatureResolvers<ContextType = ResolverContext, ParentType extends R
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   token?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  updatedAt?: Resolver<ResolversTypes['Date'], ParentType, ContextType>;
+  updatedAt?: Resolver<Maybe<ResolversTypes['Date']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -4720,7 +4720,7 @@ export type FilterResolvers<ContextType = ResolverContext, ParentType extends Re
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   position?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
-  updatedAt?: Resolver<ResolversTypes['Date'], ParentType, ContextType>;
+  updatedAt?: Resolver<Maybe<ResolversTypes['Date']>, ParentType, ContextType>;
   visible?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
@@ -4842,7 +4842,7 @@ export type HighlightResolvers<ContextType = ResolverContext, ParentType extends
   shortId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   suffix?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   type?: Resolver<ResolversTypes['HighlightType'], ParentType, ContextType>;
-  updatedAt?: Resolver<ResolversTypes['Date'], ParentType, ContextType>;
+  updatedAt?: Resolver<Maybe<ResolversTypes['Date']>, ParentType, ContextType>;
   user?: Resolver<ResolversTypes['User'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
@@ -4852,7 +4852,7 @@ export type HighlightReplyResolvers<ContextType = ResolverContext, ParentType ex
   highlight?: Resolver<ResolversTypes['Highlight'], ParentType, ContextType>;
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   text?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  updatedAt?: Resolver<ResolversTypes['Date'], ParentType, ContextType>;
+  updatedAt?: Resolver<Maybe<ResolversTypes['Date']>, ParentType, ContextType>;
   user?: Resolver<ResolversTypes['User'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
@@ -4884,7 +4884,7 @@ export type IntegrationResolvers<ContextType = ResolverContext, ParentType exten
   taskName?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   token?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   type?: Resolver<ResolversTypes['IntegrationType'], ParentType, ContextType>;
-  updatedAt?: Resolver<ResolversTypes['Date'], ParentType, ContextType>;
+  updatedAt?: Resolver<Maybe<ResolversTypes['Date']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -4967,7 +4967,7 @@ export type LinkResolvers<ContextType = ResolverContext, ParentType extends Reso
   shareInfo?: Resolver<ResolversTypes['LinkShareInfo'], ParentType, ContextType>;
   shareStats?: Resolver<ResolversTypes['ShareStats'], ParentType, ContextType>;
   slug?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  updatedAt?: Resolver<ResolversTypes['Date'], ParentType, ContextType>;
+  updatedAt?: Resolver<Maybe<ResolversTypes['Date']>, ParentType, ContextType>;
   url?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
@@ -5175,7 +5175,7 @@ export type PageResolvers<ContextType = ResolverContext, ParentType extends Reso
   readableHtml?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   type?: Resolver<ResolversTypes['PageType'], ParentType, ContextType>;
-  updatedAt?: Resolver<ResolversTypes['Date'], ParentType, ContextType>;
+  updatedAt?: Resolver<Maybe<ResolversTypes['Date']>, ParentType, ContextType>;
   url?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
@@ -5338,7 +5338,7 @@ export type RecommendationGroupResolvers<ContextType = ResolverContext, ParentTy
   members?: Resolver<Array<ResolversTypes['User']>, ParentType, ContextType>;
   name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   topics?: Resolver<Maybe<Array<ResolversTypes['String']>>, ParentType, ContextType>;
-  updatedAt?: Resolver<ResolversTypes['Date'], ParentType, ContextType>;
+  updatedAt?: Resolver<Maybe<ResolversTypes['Date']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -5399,7 +5399,7 @@ export type RuleResolvers<ContextType = ResolverContext, ParentType extends Reso
   filter?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  updatedAt?: Resolver<ResolversTypes['Date'], ParentType, ContextType>;
+  updatedAt?: Resolver<Maybe<ResolversTypes['Date']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -5749,7 +5749,7 @@ export type SubscriptionResolvers<ContextType = ResolverContext, ParentType exte
   type?: SubscriptionResolver<ResolversTypes['SubscriptionType'], "type", ParentType, ContextType>;
   unsubscribeHttpUrl?: SubscriptionResolver<Maybe<ResolversTypes['String']>, "unsubscribeHttpUrl", ParentType, ContextType>;
   unsubscribeMailTo?: SubscriptionResolver<Maybe<ResolversTypes['String']>, "unsubscribeMailTo", ParentType, ContextType>;
-  updatedAt?: SubscriptionResolver<ResolversTypes['Date'], "updatedAt", ParentType, ContextType>;
+  updatedAt?: SubscriptionResolver<Maybe<ResolversTypes['Date']>, "updatedAt", ParentType, ContextType>;
   url?: SubscriptionResolver<Maybe<ResolversTypes['String']>, "url", ParentType, ContextType>;
 };
 
@@ -6080,7 +6080,7 @@ export type WebhookResolvers<ContextType = ResolverContext, ParentType extends R
   eventTypes?: Resolver<Array<ResolversTypes['WebhookEvent']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   method?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  updatedAt?: Resolver<ResolversTypes['Date'], ParentType, ContextType>;
+  updatedAt?: Resolver<Maybe<ResolversTypes['Date']>, ParentType, ContextType>;
   url?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
