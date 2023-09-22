@@ -28,7 +28,6 @@ import {
   // createReminderResolver,
   deleteAccountResolver,
   deleteFilterResolver,
-  updateFilterResolver,
   deleteHighlightResolver,
   deleteIntegrationResolver,
   deleteLabelResolver,
@@ -91,6 +90,7 @@ import {
   subscriptionsResolver,
   typeaheadSearchResolver,
   unsubscribeResolver,
+  updateFilterResolver,
   updateHighlightResolver,
   updateLabelResolver,
   // updateLinkShareInfoResolver,
@@ -426,12 +426,12 @@ export const functionResolvers = {
 
     //   return await ctx.models.reaction.batchGetFromHighlight(id)
     // },
-    async createdByMe(
-      highlight: { userId: string; createdByMe: boolean },
+    createdByMe(
+      highlight: { userId: string },
       __: unknown,
       ctx: WithDataSourcesContext
     ) {
-      return highlight.createdByMe || highlight.userId === ctx.uid
+      return highlight.userId === ctx.uid
     },
   },
   // Reaction: {
