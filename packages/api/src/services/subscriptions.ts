@@ -51,7 +51,7 @@ const sendUnsubscribeEmail = async (
     })
 
     if (!sent) {
-      logger.info('Failed to send unsubscribe email', unsubscribeMailTo)
+      logger.info(`Failed to send unsubscribe email: ${unsubscribeMailTo}`)
       return false
     }
 
@@ -71,7 +71,7 @@ const sendUnsubscribeHttpRequest = async (url: string): Promise<boolean> => {
     return true
   } catch (error) {
     if (axios.isAxiosError(error)) {
-      logger.info('Failed to send unsubscribe http request', error.message)
+      logger.info(`Failed to send unsubscribe http request: ${error.message}`)
     } else {
       logger.info('Failed to send unsubscribe http request', error)
     }
@@ -147,7 +147,7 @@ export const unsubscribe = async (subscription: Subscription) => {
 
     if (!unsubscribed) {
       // update subscription status to unsubscribed if failed to unsubscribe
-      logger.info('Failed to unsubscribe', subscription.id)
+      logger.info(`Failed to unsubscribe: ${subscription.id}`)
       return authTrx((tx) =>
         tx.getRepository(Subscription).update(subscription.id, {
           status: SubscriptionStatus.Unsubscribed,
